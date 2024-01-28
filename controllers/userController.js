@@ -6,8 +6,8 @@ const User = require("../models/userModel");
 //Register a user
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { username, email, password } = req.body;
-  if (!username || !email || !password) {
+  const { name, email, password } = req.body;
+  if (!name || !email || !password) {
     res.status(400);
     throw new Error("All fields are mandatory!");
   }
@@ -21,7 +21,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, 10);
   console.log("Hashed Password: ", hashedPassword);
   const user = await User.create({
-    username,
+    name,
     email,
     password: hashedPassword,
   });
@@ -50,7 +50,7 @@ const loginUser = asyncHandler(async (req, res) => {
     const accessToken = jwt.sign(
       {
         user: {
-          username: user.username,
+          name: user.name,
           email: user.email,
           id: user.id,
         },
