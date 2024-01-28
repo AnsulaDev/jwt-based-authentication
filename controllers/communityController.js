@@ -1,6 +1,6 @@
 
 const asyncHandler = require("express-async-handler");
-const Community = require('./models/communityModel'); 
+const Community = require('../models/communityModel');
 
 // POST - Create a community
 const createCommunity = asyncHandler( async (req, res) => {
@@ -68,4 +68,4 @@ module.exports = {
     getAllMembers,
     getMyOwnedCommunity,
     getMyJoinedCommunity
-}
+};

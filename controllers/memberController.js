@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
-const Member = require('./models/memberModel'); 
-const Community = require('./models/communityModel'); 
-const Role = require('./models/roleModel'); 
+const Member = require('../models/memberModel');
+const Community = require('../models/communityModel'); 
+const Role = require('../models/roleModel'); 
 
 // POST - Add a member
 const addMember = asyncHandler( async (req, res) => {
@@ -56,4 +56,4 @@ const deleteMember = asyncHandler( async (req, res) => {
 module.exports = {
     addMember,
     deleteMember
-}
+};

@@ -1,6 +1,6 @@
 
 const asyncHandler = require("express-async-handler");
-const Role = require('./models/roleModel'); 
+const Role = require('../models/roleModel'); 
 
 // POST - Create a role
 const roleCreated = asyncHandler(async (req, res) => {
@@ -13,4 +13,6 @@ const roleCreated = asyncHandler(async (req, res) => {
     }
 });
 
-module.exports = roleCreated;
+module.exports = {
+    roleCreated,
+};

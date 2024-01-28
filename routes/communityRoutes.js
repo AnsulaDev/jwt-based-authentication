@@ -1,12 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const {
-    createCommunity,
-    getCommunity,
-    getAllMembers,
-    getMyOwnedCommunity,
-    getMyJoinedCommunity
-} = require('./controllers/communityController'); 
+const {createCommunity,
+        getCommunity,
+        getAllMembers,
+        getMyOwnedCommunity,
+        getMyJoinedCommunity} = require('../controllers/communityController');
 const validateToken = require("../middleware/validateTokenHandler");
 
 router.use(validateToken);

@@ -1,10 +1,8 @@
 const express = require("express");
-const {
-    roleCreated
-} = require("../controllers/roleController");
+const { roleCreated} = require('../controllers/roleController');
 
 const router = express.Router();
 
-router.post("/role", roleCreated);
+router.post("/", roleCreated);
 
 module.exports = router;
