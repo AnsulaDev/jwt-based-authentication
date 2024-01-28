@@ -6,6 +6,7 @@ const {
 } = require("../controllers/memberController");
 const validateToken = require("../middleware/validateTokenHandler");
 
+//protected routes
 router.use(validateToken);
 router.route("/").post(addMember);
 router.route("/:id").delete(deleteMember);

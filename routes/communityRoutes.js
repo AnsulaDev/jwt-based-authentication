@@ -7,6 +7,7 @@ const {createCommunity,
         getMyJoinedCommunity} = require('../controllers/communityController');
 const validateToken = require("../middleware/validateTokenHandler");
 
+//protected routes
 router.use(validateToken);
 router.route("/")
     .get(getCommunity)

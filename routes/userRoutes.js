@@ -12,6 +12,7 @@ router.post("/signup", registerUser);
 
 router.post("/signin", loginUser);
 
+//protected route
 router.get("/me", validateToken, currentUser);
 
 module.exports = router;
