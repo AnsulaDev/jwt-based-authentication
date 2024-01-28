@@ -5,11 +5,20 @@ const Community = require('./models/communityModel');
 // POST - Create a community
 const createCommunity = asyncHandler( async (req, res) => {
     try {
-        const community = new Community(req.body);
+        const { name, slug } = req.body;
+        if (!name || !slug) {
+            return res.status(400).send({ message: 'Name and slug are required' });
+        }
+        const community = new Community({
+            name,
+            slug,
+            owner: req.user._id
+        });
         await community.save();
         res.status(201).send(community);
     } catch (error) {
-        res.status(400).send(error);
+        console.error(error);
+        res.status(500).send({ message: 'An error occurred while creating the community' });
     }
 });
 
